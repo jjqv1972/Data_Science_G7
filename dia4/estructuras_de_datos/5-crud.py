@@ -64,10 +64,36 @@ while(True):
         print("=" * ANCHO)
         print(" " * 10 + "ACTUALIZAR ALUMNO")
         print("=" * ANCHO)
+
+        codigo = input("INGRESE DNI : ")
+        nombre = input("INGRESE NOMBRE : ")
+        email = input("INGRESE EMAIL : ")
+        
+        if codigo=="":
+            print(" " * 10 + "NO SE INGRESO DNI POR LO QUE NO SE ACTUALIZA NINGUN REGISTRO")
+        else:
+            if codigo in dic_alumnos:
+                dic_alumnos[codigo]['nombre']=nombre
+                dic_alumnos[codigo]['email']=email
+                print("Alumno actualizado exitosamente.")
+            else:
+                print(" " * 10 + "NO SE TIENE DNI INGRESADO EN LOS REGISTROS")
+        print("=" * ANCHO)                                
     if opcion == 4:
         print("=" * ANCHO)
         print(" " * 10 + "ELIMINAR ALUMNO")
         print("=" * ANCHO)
+        
+        codigo = input("INGRESE DNI : ")
+        if codigo=="":
+            print(" " * 10 + "NO SE INGRESO DNI POR LO QUE NO SE PUEDE ELIMINIR NINGUN REGISTRO")
+        else:
+            if codigo in dic_alumnos:
+                dic_alumnos.pop(codigo)
+                print("Alumno eliminado exitosamente.")
+            else:
+                print(" " * 10 + "NO SE TIENE DNI INGRESADO EN LOS REGISTROS")
+        print("=" * ANCHO)                                    
     if opcion == 5:
         print("=" * ANCHO)
         print(" " * 10 + "SALIENDO DEL SISTEMA...")
