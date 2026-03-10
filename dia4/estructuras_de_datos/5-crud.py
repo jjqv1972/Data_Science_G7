@@ -64,20 +64,20 @@ while(True):
         print("=" * ANCHO)
         print(" " * 10 + "ACTUALIZAR ALUMNO")
         print("=" * ANCHO)
-
-        codigo = input("INGRESE DNI : ")
-        nombre = input("INGRESE NOMBRE : ")
-        email = input("INGRESE EMAIL : ")
-        
-        if codigo=="":
-            print(" " * 10 + "NO SE INGRESO DNI POR LO QUE NO SE ACTUALIZA NINGUN REGISTRO")
-        else:
-            if codigo in dic_alumnos:
-                dic_alumnos[codigo]['nombre']=nombre
+        codigo = input("INGRESE DNI DEL ALUMNO: ")
+      
+        if codigo in dic_alumnos:
+            print(f"Alumno encontrado : {dic_alumnos[codigo]['nombre']}")
+            print("Ingrese nuevos datos para el alumno o presionar enter para conservar datos anteriores ...")
+            nuevo_nombre = input("INGRESE NUEVO NOMBRE ({dic_alumnos[codigo]['nombre']}): ")
+            nuevo_email = input("INGRESE NUEVO EMAIL ({dic_alumnos[codigo]['email']}): ")
+            if nuevo_nombre:
+                dic_alumnos[codigo]['nombre']=nuevo_nombre
+            if nuevo_email:
                 dic_alumnos[codigo]['email']=email
-                print("Alumno actualizado exitosamente.")
-            else:
-                print(" " * 10 + "NO SE TIENE DNI INGRESADO EN LOS REGISTROS")
+            print("Alumno actualizado exitosamente.")
+        else:
+            print(" " * 10 + "NO SE TIENE DNI INGRESADO EN LOS REGISTROS")
         print("=" * ANCHO)                                
     if opcion == 4:
         print("=" * ANCHO)
@@ -85,14 +85,11 @@ while(True):
         print("=" * ANCHO)
         
         codigo = input("INGRESE DNI : ")
-        if codigo=="":
-            print(" " * 10 + "NO SE INGRESO DNI POR LO QUE NO SE PUEDE ELIMINIR NINGUN REGISTRO")
+        if codigo in dic_alumnos:
+            del dic_alumnos[codigo]     #         dic_alumnos.pop(codigo)
+            print("Alumno eliminado exitosamente.")
         else:
-            if codigo in dic_alumnos:
-                dic_alumnos.pop(codigo)
-                print("Alumno eliminado exitosamente.")
-            else:
-                print(" " * 10 + "NO SE TIENE DNI INGRESADO EN LOS REGISTROS")
+            print(" " * 10 + "NO SE TIENE DNI INGRESADO EN LOS REGISTROS")
         print("=" * ANCHO)                                    
     if opcion == 5:
         print("=" * ANCHO)
