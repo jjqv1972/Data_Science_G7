@@ -6,7 +6,7 @@ def load(data):
     conn = mysql.connector.connect(
         host='localhost',
         user='root',
-        password='root2025',
+        password='mysql2026$',
         database='db_g7'
     )
     cursor = conn.cursor()
@@ -27,6 +27,7 @@ def load(data):
     cursor.executemany(insert_query,data)
     conn.commit()
     resultado = cursor.rowcount
+    
     cursor.close()
     conn.close()
     

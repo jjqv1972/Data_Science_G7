@@ -6,6 +6,7 @@ URL = 'https://randomuser.me/api/?results=10'
 response = requests.get(URL)
 print(f'codigo de response : {response.status_code}')
 #print(f'contenido : {response.json()}')
+
 if response.status_code == 200:
     data = response.json()
     lista_usuario = []
