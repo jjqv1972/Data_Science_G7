@@ -15,11 +15,11 @@ def saludar(nombre):
     
     return 'Por favor, escribe tu nombre'
 
-
 app.layout = html.Div(
     [html.H1("HOLA MUNDO DESDE DASH"),
      dcc.Input(id='input-nombre',type='text',placeholder='Escribe tu nombre'),
-     html.Div(id='saludo-output')]
+     html.Div(id='saludo-output')
+    ]
 )
 
 if __name__ == '__main__':
